@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+@import 'partials/home';
+@import 'partials/header';
+@import 'partials/jumbotron';
+@import 'partials/cards';
+@import 'partials/footer';

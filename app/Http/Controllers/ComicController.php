@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comic;
+
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-    public function getComic()
+
+    public function index()
     {
-        return view('pages.home');
+        $comics = Comic::all();
+        return view('pages.home', compact('comics'));
     }
 }

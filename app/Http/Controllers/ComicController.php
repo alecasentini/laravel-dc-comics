@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-    public function getController()
+    public function getComic()
     {
         return view('pages.home');
     }

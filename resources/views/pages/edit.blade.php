@@ -14,7 +14,7 @@
         </div>
         <div class="form-group mb-3">
             <label for="description" class="form-label">Description</label>
-            <input type=textarea name="description" id="description" class="form-control" style="height: 200px;" rows="10" cols="50" value="{{$comic->description}}"></input>
+            <textarea name="description" id="description" class="form-control" style="height: 200px;" rows="10" cols="50">{{$comic->description}}</textarea>
         </div>
         <div class="form-group mb-3">
             <label for="thumb" class="form-label">Thumb</label>

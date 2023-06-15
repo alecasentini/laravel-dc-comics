@@ -37,7 +37,7 @@
             <input type="text" name="type" id="type" class="form-control" value="{{$comic->type}}">
         </div>
 
-        <button type="submit" class="btn btn-warning mt-3">Edit
+        <button type="submit" class="btn btn-warning mt-3">Save
 
     </form>
 </div>

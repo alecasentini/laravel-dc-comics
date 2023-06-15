@@ -1,13 +1,13 @@
 <header>
 
     <nav>
-        <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC Logo">
+        <a href="/"><img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="DC Logo"></a>
         <ul>
             <li>
                 <a>characters</a>
             </li>
             <li>
-                <a>comics</a>
+                <a href="/comics">comics</a>
             </li>
             <li>
                 <a>movies</a>

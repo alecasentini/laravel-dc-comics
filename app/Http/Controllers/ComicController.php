@@ -48,4 +48,18 @@ class ComicController extends Controller
     {
         return view('pages.create');
     }
+
+    public function edit($id)
+    {
+        $comic = Comic::findOrFail($id);
+        return view('pages.edit', compact('comic'));
+    }
+
+    public function update(Request $request, Comic $comic)
+    {
+        $form_data = $request->all();
+        $comic->update($form_data);
+
+        return redirect()->route('comics.index');
+    }
 }

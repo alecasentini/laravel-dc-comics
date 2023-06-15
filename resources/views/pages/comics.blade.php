@@ -11,6 +11,7 @@
                 <th>Series</th>
                 <th>Thumb</th>
                 <th>Info</th>
+                <th>Modify</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
                 </td>
                 <td>
                     <a href="{{ route('comics.show', $comic->id) }}">More info</a>
+                </td>
+                <td>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="" class="btn btn-danger">Cancel</a>
                 </td>
             </tr>
             @endforeach

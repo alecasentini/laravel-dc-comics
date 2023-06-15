@@ -7,7 +7,14 @@ use App\Models\Comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
+
 {
+    public function getHome()
+    {
+        $comics = Comic::all();
+
+        return view('pages.home', compact('comics'));
+    }
 
     public function index()
     {
@@ -17,8 +24,8 @@ class ComicController extends Controller
 
     public function show($id)
     {
-        $comic = Comic::find($id);
-        return view('pages.store', compact('comic'));
+        $comic = Comic::findOrFail($id);
+        return view('pages.show', compact('comic'));
     }
 
     public function store(Request $request)
@@ -34,6 +41,11 @@ class ComicController extends Controller
         $newComic->type = $data['type'];
         $newComic->save();
 
-        return redirect()->route('pages.store', $newComic->id);
+        return redirect()->route('pages.comics');
+    }
+
+    public function create()
+    {
+        return view('pages.create');
     }
 }

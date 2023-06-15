@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    @include ( 'partials.header' )
+    @include('partials.header')
 
-    @include ( 'partials.jumbotron' )
+    @include('partials.jumbotron')
 
-    @yield ('index')
+    @yield('content')
 
-    @include ( 'partials.footer' )
+    @include('partials.footer')
 
 </body>
 

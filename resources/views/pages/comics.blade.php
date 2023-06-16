@@ -4,6 +4,12 @@
 <div class="container my-4">
     <h1 class="my-3">Index Comics</h1>
 
+    @if( Session::has('success') )
+    <div class="alert alert-success">
+        {!! Session::get( 'success' ) !!}
+    </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>

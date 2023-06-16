@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container my-3">
+
+    @if( Session::has('success') )
+    <div class="alert alert-success">
+        {!! Session::get( 'success' ) !!}
+    </div>
+    @endif
+
+
     <h2>{{ $comic->title }}</h2>
     <p class="fw-bolder">{{ $comic->series }}</p>
     <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="width:200px">

@@ -32,7 +32,7 @@ class ComicController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required',
+                'title' => 'required|unique:comics',
                 'price' => 'required',
                 'series' => 'required',
                 'sale_date' => 'required',
@@ -40,6 +40,7 @@ class ComicController extends Controller
             ],
             [
                 'title.required' => 'Il campo Title è richiesto',
+                'title.unique' => 'Esiste già un Comic chiamato :input',
                 'price.required' => 'Il campo Price è richiesto',
                 'series.required' => 'Il campo Series è richiesto',
                 'sale_date.required' => 'Il campo Sale Date è richiesto',
@@ -59,7 +60,7 @@ class ComicController extends Controller
         $newComic->type = $data['type'];
         $newComic->save();
 
-        return redirect()->route('comics.show', $newComic->id);
+        return redirect()->route('comics.show', $newComic->id)->with('success', 'Comic aggiunto con successo');
     }
 
     public function create()
@@ -75,16 +76,35 @@ class ComicController extends Controller
 
     public function update(Request $request, Comic $comic)
     {
+        $request->validate(
+            [
+                'title' => 'required|unique:comics',
+                'price' => 'required',
+                'series' => 'required',
+                'sale_date' => 'required',
+                'type' => 'required',
+            ],
+            [
+                'title.required' => 'Il campo Title è richiesto',
+                'title.unique' => 'Esiste già un Comic chiamato :input',
+                'price.required' => 'Il campo Price è richiesto',
+                'series.required' => 'Il campo Series è richiesto',
+                'sale_date.required' => 'Il campo Sale Date è richiesto',
+                'type.required' => 'Il campo Type è richiesto',
+            ]
+        );
+
+
         $form_data = $request->all();
         $comic->update($form_data);
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('success', 'Comic modificato con successo');
     }
 
     public function destroy(Comic $comic)
     {
         $comic->delete();
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('success', 'Comic eliminato con successo');
     }
 }
